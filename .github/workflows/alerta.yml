@@ -1,0 +1,14 @@
+name: Alerta de Integración Continua
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar notificación a ntfy
+        run: |
+          curl -d "Se ha subido código al repositorio en la rama main" ntfy.sh/devops-itla
